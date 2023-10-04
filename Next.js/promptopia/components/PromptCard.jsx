@@ -66,7 +66,7 @@ const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
         to-cyan-600 bg-clip-text text-transparent cursor-pointer"
         onClick={() => handleTagClick && handleTagClick(prompt.tag)}
       >
-        {prompt.tag}
+        #{prompt.tag}
       </p>
 
       {session?.user.id === prompt.creator._id &&
