@@ -2,12 +2,13 @@
 
 import { useSession } from "next-auth/react"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
 
 const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
   const { data: session } = useSession();
   const pathName = usePathname();
+  const router = useRouter();
 
   const [clipboardPrompt, setClipboardPrompt] = useState('');
 
@@ -17,13 +18,20 @@ const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
     setTimeout(() => setClipboardPrompt(''), 3000);
   };
 
+  const handleProfileClick = () => {
+    if (prompt.creator._id === session?.user.id) return router.push('/profile');
+
+    router.push(`/profile/${prompt.creator._id}?name=${prompt.creator.username}`);
+  };
+
   return (
     <div className=" flex-1 break-inside-avoid rounded-lg border
        border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4
         backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit">
       <div className=" flex justify-between items-start gap-5">
         <div className=" flex-1 flex justify-start items-center
-        gap-3 cursor-pointer">
+        gap-3 cursor-pointer"
+          onClick={handleProfileClick}>
           <Image
             src={prompt.creator.image}
             alt="user_image"
