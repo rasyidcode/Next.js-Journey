@@ -10,7 +10,7 @@ const UpdatePrompt = () => {
     const promptId = searchParams.get('id');
 
     const [submitting, setSubmitting] = useState(false);
-    const [post, setPost] = useState({
+    const [prompt, setPrompt] = useState({
         prompt: '',
         tag: ''
     })
@@ -20,7 +20,7 @@ const UpdatePrompt = () => {
             const response = await fetch(`/api/prompt/${promptId}`);
             const data = await response.json();
 
-            setPost({
+            setPrompt({
                 prompt: data.prompt,
                 tag: data.tag
             });
@@ -39,8 +39,8 @@ const UpdatePrompt = () => {
             const response = await fetch(`/api/prompt/${promptId}`, {
                 method: 'PATCH',
                 body: JSON.stringify({
-                    prompt: post.prompt,
-                    tag: post.tag
+                    prompt: prompt.prompt,
+                    tag: prompt.tag
                 }),
             });
 
@@ -57,8 +57,8 @@ const UpdatePrompt = () => {
     return (
         <Form
             type='Edit'
-            post={post}
-            setPost={setPost}
+            prompt={prompt}
+            setPrompt={setPrompt}
             submitting={submitting}
             handleSubmit={updatePrompt}
         />

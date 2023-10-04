@@ -1,10 +1,10 @@
 import Link from "next/link"
 
-const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+const Form = ({ type, prompt, setPrompt, submitting, handleSubmit }) => {
   return (
     <section className=" w-full max-w-full flex justify-start items-start flex-col">
       <h1 className=" mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl">
-        <span className=" bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{type} Post</span>
+        <span className=" bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{type} Prompt</span>
       </h1>
       <p className=" mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl">{type} and share amazing prompts with the world, and let your
         imagination run wild with any AI-powered platform</p>
@@ -17,9 +17,9 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <span className=" font-satoshi font-semibold text-base
              text-gray-700">Your AI Prompt</span>
           <textarea
-            value={post.prompt}
-            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder="Write your post here"
+            value={prompt.prompt}
+            onChange={(e) => setPrompt({ ...prompt, prompt: e.target.value })}
+            placeholder="Write your prompt here"
             required
             className=" w-full flex rounded-lg h-[200px] mt-2 p-3 text-gray-500 outline-0" />
         </label>
@@ -30,8 +30,8 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             <span className=" font-normal">(#product, #webdevelopment, #idea, etc.)</span>
           </span>
           <input
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            value={prompt.tag}
+            onChange={(e) => setPrompt({ ...prompt, tag: e.target.value })}
             type="text"
             placeholder="#Tag"
             required
