@@ -17,7 +17,7 @@ const Hero = () => {
         </h1>
 
         <p className='text-[27px] text-[#2B2C35] font-light m-5'>
-          Streamline your car rental experience with our 
+          Streamline your car rental experience with our
           effortless booking process
         </p>
 
@@ -36,12 +36,12 @@ const Hero = () => {
             src='/hero.png'
             alt='hero'
             fill
-            className='object-contain'/>
+            className='object-contain' />
+        </div>
 
-          <div className={`absolute xl:-top-24 xl:-right-1/2 bg-hero-bg 
+        <div className={`absolute xl:-top-24 xl:-right-1/2 bg-hero-bg 
             bg-repeat-round -z-10 w-full h-[590px] xl:h-screen 
             overflow-hidden bg-[url('/hero-bg.png')]`}></div>
-        </div>
       </div>
     </div>
   )

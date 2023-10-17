@@ -5,13 +5,14 @@ import { CustomButtonProps } from '@/types'
 const CustomButton = ({ 
   title, 
   style, 
-  onClick 
+  onClick,
+  type
 }: CustomButtonProps) => {
 
   return (
     <button
       disabled={false}
-      type={'button'}
+      type={type || 'button'}
       className={`flex flex-row relative justify-center items-center 
         py-3 px-6 outline-none ${style}`}
         onClick={onClick}>
