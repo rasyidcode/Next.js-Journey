@@ -1,24 +1,27 @@
 import { footerLinks } from '@/constants'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { FaCarSide } from 'react-icons/fa'
 
 const Footer = () => {
     return (
-        <footer className='flex flex-col text-[#2B2C35] mt-5
+        <footer className='flex flex-col text-neutral-600 mt-5
         border-t border-gray-100'>
             <div className='flex max-md:flex-col flex-wrap justify-between
                 gap-5 px-6 sm:px-16 py-10'>
                 <div className='flex flex-col justify-start 
                 items-start gap-6'>
-                    <Image
-                        src='/logo.svg'
-                        alt='logo'
-                        width={118}
-                        height={18}
-                        className='object-contain' />
+                    <Link
+                        href='/'
+                        className='flex items-center gap-2'>
+                        <FaCarSide
+                            className='text-2xl text-teal-600' />
+                        <h1 className='font-extrabold text-xl'>
+                            CarShow
+                        </h1>
+                    </Link>
                     <p className='text-base text-gray-700'>
-                        CarHub 2023 <br />
+                        CarShow 2023 <br />
                         All rights reserved &copy;
                     </p>
                 </div>
