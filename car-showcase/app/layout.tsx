@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import '@/styles/globals.css'
 import { Navbar, Footer } from '@/components'
+import '@/styles/globals.css'
+import { Inter, Manrope } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'Car Hub',
   description: 'Discover the best car in the world.',
 }
+
+const inter = Inter({
+  subsets: ['latin']
+})
+const manrope = Manrope({
+  subsets: ['latin']
+})
 
 export default function RootLayout({
   children,
@@ -14,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='relative'>
+      <body className={`${manrope.className} relative`}>
         <Navbar />
         {children}
         <Footer />

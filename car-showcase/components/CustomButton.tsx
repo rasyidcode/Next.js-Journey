@@ -1,20 +1,25 @@
 'use client'
 
-import { CustomButtonProps } from '@/types'
+import { MouseEventHandler } from 'react'
 
 const CustomButton = ({ 
   title, 
-  style, 
+  customStyle, 
+  type,
   onClick,
-  type
-}: CustomButtonProps) => {
+}: {
+  title: string,
+  customStyle?: string,
+  type?: 'button' | 'submit'
+  onClick?: MouseEventHandler<HTMLButtonElement>
+}) => {
 
   return (
     <button
       disabled={false}
       type={type || 'button'}
       className={`flex flex-row relative justify-center items-center 
-        py-3 px-6 outline-none ${style}`}
+        py-3 px-6 outline-none ${customStyle}`}
         onClick={onClick}>
       <span className={`flex-1`}>
         {title}
