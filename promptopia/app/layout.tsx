@@ -1,4 +1,4 @@
-import Nav from '@/components/Nav';
+// import Nav from '@/components/Nav';
 import Provider from '@/components/Provider';
 import '@/styles/globals.css';
 
@@ -7,7 +7,9 @@ export const metadata = {
     description: 'Discover & Share AI Prompts'
 }
 
-const RootLayout = ({ children }) => {
+const RootLayout = async ({ children }: {
+    children: React.ReactNode
+}) => {
     return (
         <html lang="en">
             <body>
@@ -16,7 +18,7 @@ const RootLayout = ({ children }) => {
                         <div className="gradient" />
                     </div>
 
-                    <main className="app">
+                    <main className=''>
                         <Nav />
                         {children}
                     </main>

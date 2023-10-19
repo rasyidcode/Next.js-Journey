@@ -1,9 +1,9 @@
+import GoogleProvider from "next-auth/providers/google"
 import User from "@/models/user";
 import { connectToDB } from "@/utils/database";
-import NextAuth from "next-auth/next";
-import GoogleProvider from "next-auth/providers/google"
+import { NextAuthOptions } from "next-auth";
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
@@ -32,7 +32,7 @@ const handler = NextAuth({
                     await User.create({
                         email: profile.email,
                         username: profile.name.replace(/\s/g, '').toLowerCase(),
-                        image: profile.picture
+                        image: profile.image
                     });
                 }
 
@@ -44,6 +44,4 @@ const handler = NextAuth({
             }
         }
     }
-});
-
-export { handler as GET, handler as POST };
+} satisfies NextAuthOptions

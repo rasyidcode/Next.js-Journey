@@ -1,15 +1,15 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { getProviders, signIn, signOut, useSession } from "next-auth/react"
+import { ClientSafeProvider, LiteralUnion, getProviders, signIn, signOut, useSession } from "next-auth/react"
 import Link from "next/link"
 import Image from "next/image"
+import { BuiltInProviderType } from "next-auth/providers"
 
 const Nav = () => {
-  // const isUserLoggedIn = true;
   const { data: session } = useSession();
 
-  const [providers, setProviders] = useState(null);
+  const [providers, setProviders] = useState<Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>>(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {

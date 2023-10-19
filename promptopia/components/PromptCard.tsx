@@ -4,8 +4,12 @@ import { useSession } from "next-auth/react"
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
+import { IPrompt } from "@/models/prompt"
 
-const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
+const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }: {
+  prompt: IPrompt,
+  handleTagClick: (tag: string) => void
+}) => {
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();
