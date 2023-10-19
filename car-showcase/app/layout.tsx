@@ -1,16 +1,13 @@
 import type { Metadata } from 'next'
 import { Navbar, Footer } from '@/components'
 import '@/styles/globals.css'
-import { Inter, Manrope } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'Car Hub',
   description: 'Discover the best car in the world.',
 }
 
-const inter = Inter({
-  subsets: ['latin']
-})
 const manrope = Manrope({
   subsets: ['latin']
 })
